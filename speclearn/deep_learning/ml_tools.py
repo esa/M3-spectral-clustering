@@ -279,37 +279,12 @@ def split_datasets(data_files):
     Split dataset into 80 % for training, 10 % for validation, 10 % for testing
     """
 
-    X_test = []
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/TiO2_mean.npy')
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/Orthopyroxene_mean.npy')
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/Olivine_mean.npy')
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/Olivine_3_mean.npy')
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/FeO_2_mean.npy')
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/Random_18_mean.npy')
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/Random_35_mean.npy')
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/Random_61_mean.npy')
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/Random_13_mean.npy')
-    X_test.append(
-        '/media/freya/rebin/M3/pickles/nlong7200_nlat3600/sun_zenith_90_sensor_zenith_25_obs_phase_angle_180/spec/Random_2_mean.npy')
-    for f in X_test:
-        if f in data_files:
-            data_files.remove(f)
-
     # random.shuffle(data_files) # FIXME enable eventually
     train_index = int(len(data_files) * 0.8)
     valid_index = train_index + int(len(data_files) * 0.2)
 
     X_train = data_files[0:train_index]
-    # X_test = data_files[train_index:valid_index]
+    X_test = data_files[train_index:valid_index]
     X_valid = data_files[train_index:]
 
     return X_train, X_test, X_valid

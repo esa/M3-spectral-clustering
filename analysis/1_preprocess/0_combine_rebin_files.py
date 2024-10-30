@@ -11,9 +11,3 @@ random.shuffle(aoi)
 
 for _aoi in aoi:
     pickle_file = rebin_from_aoi(_aoi, combine_files=True, verbose=True, overwrite=False, remove_spectral_outliers=False, remove_zeros_from_spectra=False, suffix='')
-
-# for _aoi in aoi:
-#     pickle_file = rebin_from_aoi(_aoi, combine_files=True, verbose=True, periods=['OP1B', 'OP2A', 'OP2B'], overwrite=False)
-
-# for _aoi in aoi:
-#     pickle_file = rebin_from_aoi(_aoi, combine_files=True, verbose=True, periods=['OP2C'], overwrite=False)
